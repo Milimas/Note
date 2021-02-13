@@ -21,6 +21,11 @@ SART_TIME_INPUT.value = Default_Start_Time;                                     
 END_TIME_INPUT.value = Default_End_Time;                                                    // ? Fill END_TIME_INPUT with Default_End_Time
 DATE_INPUT.value = Default_Date;                                                            // ? Fill DATE_INPUT with Default_Date
 
+var Started_Audio = new Audio('Task_Start.mp3');                                            // ? Ended Task Audio
+var Ended_Audio = new Audio('Task_End.mp3');                                                // ? Started Task Audio
+
+Notification.requestPermission();                                                           // ! Request Notification Permission
+
 /**
  * @name formPreventDefault
  * @type Boolean
@@ -54,7 +59,6 @@ var on_Editing = null;
  */
 const deleteElement = (id) => {
     notes = notes.filter((note) => note.id !== id );                                        // ? Get all element except the one with id
-    writeToStorage();                                                                       // ! Write to localStorage
     addElementsToDom();                                                                     // ! Refresh DOM
 }
 
@@ -131,12 +135,10 @@ const addNew = () => {
         }
         if (note.startTime < note.endTime) {                                                // ! Check if start time before end time
             notes[lastid] = note;                                                           // ? Insert note Object at end of notes Object
-            writeToStorage();                                                               // ! Write notes to Local Storage
             addElementsToDom();                                                             // ! Add elemnts to DOM
         }
         else                                                                                // ! Else if start time is after or equal to end time
         alert('Start Time bigger or equal to end Time');                                    // ? alert user
-        console.log(note);
     }
 
 };
@@ -207,15 +209,54 @@ function addClassToNote(note, key) {
     currDate = new Date();                                                                  // ? Get current date and time
     noteStartDate = new Date(`${note.date} ${note.startTime}`);                             // ? Get noteStartDate
     noteEndDate = new Date(`${note.date} ${note.endTime}`);                                 // ? Get noteEndDate
+    let active = null;
     if (currDate > noteStartDate) {                                                         // ! Check if currDate after noteStartDate
         if (currDate > noteEndDate) {                                                       // ! Check if currDate after noteEndDate
-            note.active = 'bg-danger';                                                      // * Add class bg-danger to note
+            active = 'bg-danger';                                                           // * Add class bg-danger to note
         } else {                                                                            // ! Else if currDate before noteEndDate
-            note.active = 'bg-green';                                                       // * Add class bg-green to note
+            active = 'bg-green';                                                            // * Add class bg-green to note
         }
     } else {                                                                                // ! Else if currDate before noteStartDate
-        note.active = 'bg-primary';                                                         // * Add class bg-primary to note
+        active = 'bg-primary';                                                              // * Add class bg-primary to note
     }
+    if (note.active !== active) {                                                           // ! Check if active need to be change
+        notification = {
+            title: note.title,                                                              // * Notification Title
+            body: note.note,                                                                // * Notification Body
+            image: null                                                                     // * Notification Image
+        }
+        if (active === 'bg-danger') {                                                       // ! Check if active need to be change to bg-danger
+            Ended_Audio.play();                                                             // ! Play Sound when a task Ended
+            notification.title += `- TIME OUT`;                                             // * Add Time out to Title
+            notification.image = './End.jpg';                                               // * Insert path to End image
+        }
+        else if (active === 'bg-green') {                                                   // ! Check if active need to be change to bg-green
+            Started_Audio.play();                                                           // ! Play Sound when a task Started
+            notification.title += `- START NOW`;                                            // * Add Start now to Title
+            notification.image = './Start.jpg';                                             // * Insert path to Start image                                             
+        }
+        displayNotification(notification);                                                  // ! Create and display Notification
+        note.active = active;                                                               // * Change note active value to needed change
+    }
+    writeToStorage();                                                                       // ! Write notes to Local Storage
+}
+
+/**
+ * @name displayNotification
+ * @type Void
+ * @description Create and display Notification
+ */
+function displayNotification({title, body, image}) {
+    notification = new Notification(                                                        // ! Create new Notification Object
+        title,                                                                              // * Title
+        {
+            body: body,                                                                     // * Body
+            image: image                                                                    // * Image
+        });
+    notification.onclick = () => {                                                          // ! Adding on click event listner to notification
+        window.focus();                                                                     // ? Focus on this window
+        this.close();                                                                       // ? Close notification
+    };
 }
 
 /**
