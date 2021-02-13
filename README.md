@@ -1,2 +1,6 @@
-# Note
-Simple Note app using html sass and javascript
+# Note 📓
+
+simple 📝 Note application using
+  - HTML 🍖
+  - Sass  💄
+  - JavaScript ⚙
