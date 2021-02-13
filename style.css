@@ -1,0 +1,176 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 5rem 0;
+  background-color: #18191a;
+}
+
+.btn, .notes .note .delete, .notes .note .edit {
+  padding: .7rem 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: .1rem;
+}
+
+.btn-primary, .notes .note .edit {
+  background-color: #5b5bf7;
+  color: #e4e6eb;
+  -webkit-transition: .6s ease;
+  transition: .6s ease;
+}
+
+.btn-primary:hover, .notes .note .edit:hover {
+  background-color: #3f3ffd;
+  -webkit-transition: .6s ease;
+  transition: .6s ease;
+}
+
+.btn-danger, .notes .note .delete {
+  background-color: #9e2121;
+  color: #e4e6eb;
+  -webkit-transition: .6s ease;
+  transition: .6s ease;
+}
+
+.btn-danger:hover, .notes .note .delete:hover {
+  background-color: #fc2222;
+  -webkit-transition: .6s ease;
+  transition: .6s ease;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 50vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5rem;
+}
+
+.form label {
+  color: #e4e6eb;
+  font-weight: 500;
+}
+
+.form .form-control {
+  width: 400px;
+  min-height: 30px;
+  border: none;
+  border-bottom: 0.5px solid #5b5bf7;
+  margin-bottom: 1rem;
+  border-radius: .3rem;
+  padding: .3rem 1rem;
+  resize: none;
+  -webkit-transition: .7s ease-out;
+  transition: .7s ease-out;
+  background-color: #242526;
+  color: #e4e6eb;
+}
+
+.form .form-control::-webkit-calendar-picker-indicator {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.form .form-control::-webkit-input-placeholder {
+  color: #b0b3b8;
+}
+
+.form .form-control:-ms-input-placeholder {
+  color: #b0b3b8;
+}
+
+.form .form-control::-ms-input-placeholder {
+  color: #b0b3b8;
+}
+
+.form .form-control::placeholder {
+  color: #b0b3b8;
+}
+
+.form .form-control:focus {
+  outline-color: #5b5bf7;
+}
+
+.form .editBox {
+  display: none;
+}
+
+.notes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.notes .note {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1rem;
+  padding: .5rem 1.5rem;
+  border-radius: .7rem;
+  width: 500px;
+}
+
+.notes .note .note-title {
+  margin-bottom: 0;
+}
+
+.notes .note .delete {
+  padding: .3rem;
+}
+
+.notes .note .edit {
+  padding: .3rem;
+}
+
+.bg-primary {
+  background-color: #31a2ee;
+}
+
+.bg-green {
+  background-color: #eebc31;
+}
+
+.bg-danger {
+  background-color: #ee3131;
+}
+/*# sourceMappingURL=style.css.map */

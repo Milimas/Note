@@ -1,0 +1,149 @@
+$primary: rgb(91, 91, 247);
+$primary-500: rgb(63, 63, 253);
+$danger: rgb(158, 33, 33);
+$danger-500: rgb(252, 34, 34);
+$card-primary: rgb(49, 162, 238);
+$card-green: rgb(238, 188, 49);
+$card-danger: rgb(238, 49, 49);
+$body-bg: #18191a;
+$elemet-bg: #242526;
+$text-color: #e4e6eb;
+$placeholder-color: #b0b3b8;
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// ? Body Style
+body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 5rem 0;
+    background-color: $body-bg;
+}
+
+// ? Button Style
+.btn {
+    padding: .7rem 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: .1rem;
+}
+
+// ? Button Primary 
+.btn-primary {
+    background-color: $primary;
+    color: $text-color;
+    transition: .6s ease;
+    &:hover {
+        background-color: $primary-500;
+        transition: .6s ease;
+    }
+}
+// ? Button Danger
+.btn-danger {
+    background-color: $danger;
+    color: $text-color;
+    transition: .6s ease;
+    &:hover {
+        background-color: $danger-500;
+        transition: .6s ease;
+    }
+}
+// ? Form Style
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    position: sticky;
+    top: 5rem;
+    // ? Label Style
+    label {
+        color: $text-color;
+        font-weight: 500;
+    }
+    // ? Text Input, Textarea, DatePicker and TimePicker Style 
+    .form-control {
+        width: 400px;
+        min-height: 30px;
+        border: none;
+        border-bottom: .5px solid $primary;
+        margin-bottom: 1rem;
+        border-radius: .3rem;
+        padding: .3rem 1rem;
+        resize: none;
+        transition: .7s ease-out;
+        background-color: $elemet-bg;
+        color: $text-color;
+        // ? DatePicker and TimePicker Icon
+        &::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+        // ? Text Input, Textarea placeholder color
+        &::placeholder {
+            color: $placeholder-color;
+        }
+        // ? Text Input, Textarea, DatePicker and TimePicker on focus
+        &:focus {
+            outline-color: $primary;
+            
+        }
+    }
+    // ? Edit & Cancel Buttons Container
+    .editBox {
+        display: none;
+    }
+    
+}
+
+// ? Notes Components Container
+.notes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // ? Single note Style
+    .note {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1rem;
+        padding: .5rem 1.5rem;
+        border-radius: .7rem;
+        width: 500px;
+        // ? Note Title
+        .note-title {
+            margin-bottom: 0;
+        }
+        // ? Delete Button
+        .delete {
+            @extend .btn;
+            padding: .3rem;
+            @extend .btn-danger;
+        }
+        // ? Edit Button
+        .edit {
+            @extend .btn;
+            padding: .3rem;
+            @extend .btn-primary;
+        }
+    }
+}
+
+// ? Note Background Primary
+.bg-primary {
+    background-color: $card-primary;    
+}
+
+// ? Note Background Green
+.bg-green {
+    background-color: $card-green;
+}
+
+// ? Note Background Danger
+.bg-danger {
+    background-color: $card-danger;
+}

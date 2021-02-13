@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <title>Note</title>
+</head>
+
+<body>
+    <form id="form" action="" class="form">
+
+        <!-- title -->
+        <label for="title">Title: </label>
+        <input id="title" class="form-control" type="text" name="title" placeholder="Note Title ..." required>
+
+        <!-- start time -->
+        <label for="startTime">Start Time:</label>
+        <input id="startTime" class="form-control" type="time" name="startTime" required>
+
+        <!-- end time -->
+        <label for="endTime">End Time:</label>
+        <input id="endTime" class="form-control" type="time" name="endtime" required>
+
+        <!-- date -->
+        <label for="date">Date:</label>
+        <input id="date" class="form-control" type="date" name="date" pattern="" required>
+
+        <!-- note -->
+        <label for="note">Note:</label>
+        <textarea id="note" class="form-control" name="note" placeholder="Note ..." cols="30" rows="10"
+            required></textarea>
+
+        <!-- submit button -->
+        <input id="addNew" class="btn btn-primary" type="submit" value="ADD NEW">
+        <div class="editBox">
+            <input id="edit" class="btn btn-primary" type="button" value="Edit">
+            <input id="cancel" class="btn btn-danger" type="button" value="Cancel">
+        </div>
+    </form>
+
+    <!-- start notes -->
+    <div class="notes" id="notes">
+
+
+
+    </div><!-- end notes -->
+
+    <script src="app.js"></script>
+</body>
+
+</html>
