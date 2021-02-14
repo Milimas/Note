@@ -114,7 +114,8 @@ CANCEL_BUTTON.addEventListener('click', cancelEdit);
  * @type Void
  * @description Add new Note to DOM and LocalStorage
  */
-const addNew = () => {
+const addNew = (e) => {
+    e.preventDefault();
     let lastid = notes.length;                                                              // ? Get last ID from notes
     requiredFull = true;                                                                    // ? Variable to track required fields if empty, Default value is true
     REQUIRED.forEach(element => {                                                           // ! Loop through inputs of REQUIRED fields
