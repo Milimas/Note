@@ -10,7 +10,7 @@ Tags: note, dark, blue
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.d-flex, body, .form, .notes, .notes .note {
+.d-flex, body, .form, .notes, .notes .note, .notfound {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,7 +29,6 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 5rem 0;
   background-color: #18191a;
 }
 
@@ -131,6 +130,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 4rem 0;
 }
 
 .notes .note {
@@ -165,5 +165,19 @@ body {
 
 .bg-danger {
   background-color: #ee3131;
+}
+
+.notfound {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #e4e6eb;
+  height: 100vh;
+  font-size: 50pt;
+}
+
+.notfound span {
+  font-size: 200pt;
 }
 /*# sourceMappingURL=style.css.map */

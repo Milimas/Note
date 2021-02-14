@@ -33,7 +33,6 @@ body {
     @extend .d-flex;
     justify-content: space-evenly;
     align-items: flex-start;
-    padding: 5rem 0;
     background-color: $body-bg;
 }
 
@@ -115,6 +114,7 @@ body {
 .notes {
     @extend .d-flex;
     flex-direction: column;
+    padding: 4rem 0;
     // ? Single note Style
     .note {
         @extend .d-flex;
@@ -155,4 +155,18 @@ body {
 // ? Note Background Danger
 .bg-danger {
     background-color: $card-danger;
+}
+
+// ! Not Found Page
+// ? Not Found Container
+.notfound {
+    @extend .d-flex;
+    flex-direction: column;
+    color: $text-color;
+    height: 100vh;
+    font-size: 50pt;
+    span {
+        font-size: 200pt;
+    }
+
 }
