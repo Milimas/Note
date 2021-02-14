@@ -84,10 +84,12 @@ const editElement = (id) => {
  * @name confirmEdit
  * @type Void
  * @description Add new Note and delete the Note on Editing
+ * @param {Event} event
  */
-const confirmEdit = () => {
+const confirmEdit = (event) => {
+    event.preventDefault();                                                                 // ! Prevent Default action
     deleteElement(on_Editing);                                                              // ! Delete the Note currently editing
-    addNew();                                                                               // ! Add new Note to Dom and Storage
+    addNew(event);                                                                          // ! Add new Note to Dom and Storage
     cancelEdit();                                                                           // ! Emty all input Fields
 }
 EDIT_BUTTON.addEventListener('click', confirmEdit);
@@ -114,8 +116,8 @@ CANCEL_BUTTON.addEventListener('click', cancelEdit);
  * @type Void
  * @description Add new Note to DOM and LocalStorage
  */
-const addNew = (e) => {
-    e.preventDefault();
+const addNew = (event) => {
+    event.preventDefault();                                                                 // ! Prevent Dfault action
     let lastid = notes.length;                                                              // ? Get last ID from notes
     requiredFull = true;                                                                    // ? Variable to track required fields if empty, Default value is true
     REQUIRED.forEach(element => {                                                           // ! Loop through inputs of REQUIRED fields
@@ -227,12 +229,20 @@ function addClassToNote(note, key) {
             image: null                                                                     // * Notification Image
         }
         if (active === 'bg-danger') {                                                       // ! Check if active need to be change to bg-danger
-            Ended_Audio.play();                                                             // ! Play Sound when a task Ended
+            try {
+                Ended_Audio.play();                                                         // ! Play Sound when a task Ended
+            } catch (error) {
+                console.log(error);
+            } 
             notification.title += `- TIME OUT`;                                             // * Add Time out to Title
             notification.image = './End.jpg';                                               // * Insert path to End image
         }
         else if (active === 'bg-green') {                                                   // ! Check if active need to be change to bg-green
-            Started_Audio.play();                                                           // ! Play Sound when a task Started
+            try {
+                Started_Audio.play();                                                           // ! Play Sound when a task Started
+            } catch (error) {
+                console.log(error);
+            }
             notification.title += `- START NOW`;                                            // * Add Start now to Title
             notification.image = './Start.jpg';                                             // * Insert path to Start image                                             
         }
@@ -256,7 +266,7 @@ function displayNotification({title, body, image}) {
         });
     notification.onclick = () => {                                                          // ! Adding on click event listner to notification
         window.focus();                                                                     // ? Focus on this window
-        this.close();                                                                       // ? Close notification
+        //this.close();                                                                       // ? Close notification
     };
 }
 
