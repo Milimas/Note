@@ -29,7 +29,7 @@ const server = http.createServer((req, res) => {
                 fs.createReadStream(filePath).pipe(res);
             });
         }
-        else if (fileExt == '.css') {
+        else if (fileExt == '.css' || fileExt == '.map') {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'text/css');
             fs.createReadStream(filePath).pipe(res);
@@ -47,6 +47,11 @@ const server = http.createServer((req, res) => {
         else if (fileExt == '.jpg') {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'image/jpg');
+            fs.createReadStream(filePath).pipe(res);
+        }
+        else if (fileExt == '.mp3') {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'audio/mpeg');
             fs.createReadStream(filePath).pipe(res);
         }
         else {
