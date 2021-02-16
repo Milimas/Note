@@ -162,9 +162,8 @@ const insertNewNote = ({id, title, startTime, endTime, date, note, active}) => {
     <small class="note-time">
     ${startTime} - ${endTime} / ${date}
     </small> 
-    <p class="note-text">
-    ${note}
-    </p>
+    <pre class="note-text">${note}
+    </pre>
     </div>
     <div class="control">
     <button class="delete" onclick="deleteElement(${id})">Delete</button>
