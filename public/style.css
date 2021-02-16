@@ -140,7 +140,13 @@ body {
   margin: 1rem;
   padding: .5rem 1.5rem;
   border-radius: .7rem;
+  width: 600px;
+}
+
+.notes .note .note-text {
   width: 500px;
+  word-wrap: break-word;
+  white-space: pre-line;
 }
 
 .notes .note .note-title {

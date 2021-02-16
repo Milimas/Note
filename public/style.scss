@@ -122,7 +122,15 @@ body {
         margin: 1rem;
         padding: .5rem 1.5rem;
         border-radius: .7rem;
-        width: 500px;
+        width: 600px;
+
+        // ? Note text
+        .note-text {
+            width: 500px;
+            word-wrap: break-word;
+            white-space: pre-line;
+        }
+ 
         // ? Note Title
         .note-title {
             margin-bottom: 0;
