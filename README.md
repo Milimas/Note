@@ -7,3 +7,9 @@ simple 📝 Note application using
 - JavaScript ⚙
 
 Hosted Using NodeJs
+
+## usage:
+
+```bash
+$> node server.js
+```
